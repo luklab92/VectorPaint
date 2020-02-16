@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Paint.PaintController">
+  <children>
+    <BorderPane maxWidth="800.0" prefHeight="440.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="600.0">
+          <children>
+            <Label contentDisplay="CENTER" text="Fill Color" />
+            <ColorPicker fx:id="FillCollorPicker" maxHeight="1.7976931348623157E308" maxWidth="-1.0" />
+            <Label text="Stroke Color" />
+            <ColorPicker fx:id="StrokeColorPicker" maxHeight="1.7976931348623157E308" />
+          </children>
+        </HBox>
+      </bottom>
+      <center>
+        <Canvas fx:id="canvas" height="400.0" width="700.0" />
+      </center>
+      <left>
+        <VBox prefHeight="322.0" prefWidth="84.0">
+          <children>
+            <Button id="lineTool" fx:id="LineTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Line" />
+            <Button fx:id="RectTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Rect" />
+            <Button fx:id="TriangleTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Triangle" />
+            <Button fx:id="CircleTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Circle" />
+            <Button fx:id="ElipseTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Elipse" />
+            <Button id="starTool" fx:id="StarTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Star" />
+          </children>
+        </VBox>
+      </left>
+      <top>
+        <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="600.0">
+          <children>
+            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Clear" />
+            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Load" />
+            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Save" />
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>
