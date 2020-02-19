@@ -15,7 +15,7 @@ public class Pen extends Shape{
 
     @Override
     public void draw(GraphicsContext context) {
-
+context.fillRect(startX,startY,context.getLineWidth(),context.getLineWidth());
     }
 
     @Override

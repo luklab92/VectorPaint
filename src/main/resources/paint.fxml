@@ -45,6 +45,7 @@
             <Button fx:id="EllipseTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeTool" text="Ellipse" />
             <Button id="starTool" fx:id="StarTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeTool" text="Star" />
             <Button fx:id="PenTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeTool" text="Pen" />
+            <Button fx:id="RubberTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeTool" text="Rubber" />
           </children>
         </VBox>
       </left>

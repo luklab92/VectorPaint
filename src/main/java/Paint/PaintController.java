@@ -50,6 +50,8 @@ public class PaintController {
     private Button PenTool;
     @FXML
     private Slider sliderButton;
+    @FXML
+    private Button RubberTool;
 
     private Shape currentShape;
     private Tool currentTool = Tool.LINE;
@@ -97,7 +99,13 @@ public class PaintController {
         currentShape.setFillColor(fillColorPicker.getValue());
         currentShape.setLineWidth(sliderButton.getValue());
         currentShape.setStrokeColor(strokeColorPicker.getValue());
+        rubberSetColorTool();
+    }
 
+    private void rubberSetColorTool() {
+        if (currentTool == Tool.RUBBER) {
+            currentShape.setFillColor(Color.WHITE);
+        }
     }
 
     private Shape createShape() {
@@ -117,6 +125,8 @@ public class PaintController {
                 return new Star(startX, startY, endX, endY);
             case PEN:
                 return new Pen(startX,startY);
+            case RUBBER:
+                return new Rubber(startX,startY);
         }
     }
 
@@ -158,6 +168,8 @@ public class PaintController {
             currentTool = Tool.TRIANGLE;
         } else if (source == PenTool) {
             currentTool = Tool.PEN;
+        } else if (source == RubberTool) {
+            currentTool = Tool.RUBBER;
         }
         else {
             throw new IllegalStateException("Unsupported tool");
@@ -240,6 +252,7 @@ public class PaintController {
         else if (input.equals("Ellipse")) currentTool = Tool.ELLIPSE;
         else if (input.equals("Line")) currentTool = Tool.LINE;
         else if (input.equals("Pen")) currentTool = Tool.PEN;
+        else if (input.equals("Rubber")) currentTool= Tool.RUBBER;
     }
     private void setValues(String inputX1, String inputY1, String inputX2, String inputY2) {
         startX = Double.parseDouble(inputX1);
