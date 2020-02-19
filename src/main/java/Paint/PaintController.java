@@ -48,7 +48,8 @@ public class PaintController {
     private ColorPicker strokeColorPicker;
     @FXML
     private Button PenTool;
-
+    @FXML
+    private Slider sliderButton;
 
     private Shape currentShape;
     private Tool currentTool = Tool.LINE;
@@ -56,6 +57,7 @@ public class PaintController {
     public void initialize() {
         fillColorPicker.setValue(Color.GREEN);
         strokeColorPicker.setValue(Color.BLUE);
+        sliderButton.setValue(2);
         refreshCanvas();
         canvas.setOnMousePressed(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
@@ -81,24 +83,8 @@ public class PaintController {
                 refreshCanvas();
             }
         });
-
     }
 
-    public void choiceBoxSet() {
-        ComboBox<String> cb = new ComboBox<>(FXCollections.observableArrayList(
-                "1", "2", "3", "5", "8", "10")
-        );
-        final int[] lineWidth = {1, 2, 3, 5, 8, 10};
-        cb.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            public void changed(ObservableValue ov, Number oldValue, Number newValue) {
-                currentShape.setLineWidth(lineWidth[newValue.intValue()]);
-                System.out.println();
-            }
-        });
-        System.out.println("zmiana" + currentShape.getLineWidth());
-        cb.setTooltip(new Tooltip("Select Line Width"));
-
-    }
 
     private void applyShape() {
         shapeList.add(currentShape);
@@ -109,6 +95,7 @@ public class PaintController {
     private void prepareShape() {
         currentShape = createShape();
         currentShape.setFillColor(fillColorPicker.getValue());
+        currentShape.setLineWidth(sliderButton.getValue());
         currentShape.setStrokeColor(strokeColorPicker.getValue());
 
     }
@@ -269,4 +256,18 @@ public class PaintController {
     }
 }
 
+    /*public void choiceBoxSet() {
+        ComboBox<String> cb = new ComboBox<>(FXCollections.observableArrayList(
+                "1", "2", "3", "5", "8", "10")
+        );
+        final int[] lineWidth = {1, 2, 3, 5, 8, 10};
+        cb.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue ov, Number oldValue, Number newValue) {
+                currentShape.setLineWidth(lineWidth[newValue.intValue()]);
+                System.out.println();
+            }
+        });
+        System.out.println("zmiana" + currentShape.getLineWidth());
+        cb.setTooltip(new Tooltip("Select Line Width"));
 
+    }*/
