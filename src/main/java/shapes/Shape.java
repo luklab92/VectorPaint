@@ -1,12 +1,19 @@
 package shapes;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Tooltip;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 public abstract class Shape {  //klasa abstrakcyjna - tworzymy funkcje ktora nie wiadomo jaki obiekt tworzy
     private Paint fillColor = Color.PINK;
     private Paint strokeColor = Color.CYAN;
+    private int lineWidth = 5;
 
     protected Shape() {
     }
@@ -20,6 +27,15 @@ public abstract class Shape {  //klasa abstrakcyjna - tworzymy funkcje ktora nie
         context.setStroke(getStrokeColor());
         context.setFill(getFillColor());
         draw(context);
+
+    }
+
+    public int getLineWidth() {
+        return lineWidth;
+    }
+
+    public void setLineWidth(int lineWidth) {
+        this.lineWidth = lineWidth;
     }
 
     public Shape(Paint fillColor, Paint strokeColor) {

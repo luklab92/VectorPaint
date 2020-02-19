@@ -2,6 +2,7 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.*?>
@@ -14,34 +15,51 @@
       <bottom>
         <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="600.0">
           <children>
-            <Label contentDisplay="CENTER" text="Fill Color" />
-            <ColorPicker fx:id="fillColorPicker" maxHeight="1.7976931348623157E308" maxWidth="-1.0" />
-            <Label text="Stroke Color" />
+            <ComboBox>
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="1" />
+                  <String fx:value="3" />
+                  <String fx:value="5" />
+                  <String fx:value="7" />
+                  <String fx:value="10" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefWidth="73.0" text="Fill Color">
+              <labelFor>
+                <ColorPicker fx:id="fillColorPicker" maxHeight="1.7976931348623157E308" maxWidth="-1.0" />
+              </labelFor>
+            </Label>
+            <fx:reference source="fillColorPicker" />
+            <Label prefWidth="96.0" text="Stroke Color" />
             <ColorPicker fx:id="strokeColorPicker" maxHeight="1.7976931348623157E308" />
           </children>
         </HBox>
       </bottom>
       <center>
-        <Canvas fx:id="canvas" height="500.0" width="700.0" />
+        <Canvas fx:id="canvas" height="500.0" scaleX="1.0" scaleY="1.066" width="700.0" />
       </center>
       <left>
         <VBox prefHeight="322.0" prefWidth="84.0">
           <children>
-            <Button id="lineTool" fx:id="LineTool" onAction="#changeTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Line" />
-            <Button fx:id="rectTool" maxWidth="1.7976931348623157E308" onAction="#changeTool" mnemonicParsing="false" text="Rect" />
-            <Button fx:id="TriangleTool" maxWidth="1.7976931348623157E308" onAction="#changeTool" mnemonicParsing="false" text="Triangle" />
-            <Button fx:id="CircleTool" maxWidth="1.7976931348623157E308" onAction="#changeTool" mnemonicParsing="false" text="Circle" />
-            <Button fx:id="EllipseTool" maxWidth="1.7976931348623157E308" onAction="#changeTool" mnemonicParsing="false" text="Elipse" />
-            <Button id="starTool" fx:id="StarTool" maxWidth="1.7976931348623157E308" onAction="#changeTool" mnemonicParsing="false" text="Star" />
+            <Button id="lineTool" fx:id="LineTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeTool" text="Line" />
+            <Button fx:id="rectTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeTool" text="Rect" />
+            <Button fx:id="TriangleTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeTool" text="Triangle" />
+            <Button fx:id="CircleTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeTool" text="Circle" />
+            <Button fx:id="EllipseTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeTool" text="Ellipse" />
+            <Button id="starTool" fx:id="StarTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeTool" text="Star" />
+            <Button fx:id="PenTool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeTool" text="Pen" />
           </children>
         </VBox>
       </left>
       <top>
         <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="600.0">
           <children>
-            <Button maxHeight="1.7976931348623157E308" onAction="#clearWindow" mnemonicParsing="false" text="Clear" />
-            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Load" />
-            <Button maxHeight="1.7976931348623157E308"  onAction="#handleSave" mnemonicParsing="false" text="Save" />
+            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearWindow" text="Clear" />
+            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#loadAction" text="Load" />
+            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleSave" text="Save" />
+            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#removeLast" text="Undo" />
           </children>
         </HBox>
       </top>

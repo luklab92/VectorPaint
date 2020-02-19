@@ -7,6 +7,10 @@ public class Rectangle extends Shape{
     private double w;
     private double h;
     private double y;
+    private double tempx1;
+    private double tempx2;
+    private double tempy1;
+    private double tempy2;
 
 
     public Rectangle(double x1, double y1, double x2, double y2) {
@@ -14,15 +18,19 @@ public class Rectangle extends Shape{
         this.y = Math.min(y1,y2);
         this.w = Math.abs(x1-x2);
         this.h = Math.abs(y1-y2);
+        this.tempx1=x1;
+        this.tempy1=y1;
+        this.tempx2=x2;
+        this.tempy2=y2;
     }
 
     public String getData() {
         StringBuilder builder = new StringBuilder();
         builder.append("Rectangle;");
-        builder.append(x).append(";");
-        builder.append(y).append(";");
-        builder.append(w).append(";");
-        builder.append(h).append(";");
+        builder.append(tempx1).append(";");
+        builder.append(tempy1).append(";");
+        builder.append(tempx2).append(";");
+        builder.append(tempy2).append(";");
         builder.append(getFillColor()).append(";");
         builder.append(getStrokeColor()).append(";");
         return builder.toString();
